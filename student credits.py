@@ -41,4 +41,32 @@ def menu():
 
 
 
+def show_list():
+    for index in range(0, len(students)):
+        print("{}. {} - Credits: {}".format(index+1, students[index][0], students[index][1]))
+
+
+
+menu()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+        
 
