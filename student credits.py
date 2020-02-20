@@ -46,7 +46,13 @@ def show_list():
         print("{}. {} - Credits: {}".format(index+1, students[index][0], students[index][1]))
 
 
+def add_new():
+    student_name = input("Enter student's name")
+    student_credits = int(input("Enter number of credits"))
 
+    new_student = [student_name, student_credits]
+    students.append(new_student)
+    
 menu()
 
 
