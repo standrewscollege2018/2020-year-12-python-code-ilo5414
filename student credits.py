@@ -52,7 +52,14 @@ def add_new():
 
     new_student = [student_name, student_credits]
     students.append(new_student)
-    
+
+
+def delete_std():
+    show_list()
+    std_number = int(input("Enter student number you wish to delete:"))
+    del(students[std_num-1])
+
+
 menu()
 
 
