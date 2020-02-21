@@ -90,12 +90,33 @@ def update():
     show_list()
     repetition = int(input("How many new students do you wish to update?:"))
     for i in range (0, repetition):
+        
         student_number = int(input("Please Enter the number of the student you wish to update?:"))
-        new_name = input("Enter new name")
-        new_credits = int(input("Enter new number of credits"))
+        print("What would you like to update?",
+              "1. Students name",
+              "2. Students credits",
+              "3. Both")
+       
+        update_option = int(input())
+        if update_option == 1:
+            new_name = input("Enter new name")
+            students[student_number-1][0] = new_name
+            
+        elif update_option == 2:
+            new_credits = int(input("Enter new number of credits"))
+            students[student_number-1][1] = new_credits   
+                
+        elif update_option == 3:
+            new_name = input("Enter new name")
+            new_credits = int(input("Enter new number of credits"))
+            students[student_number-1][0] = new_name
+            students[student_number-1][1] = new_credits
+                
+                
+        else:
+            print("ERROR" "Please enter a valid number")
 
-        students[student_number-1][0] = new_name
-        students[student_number-1][1] = new_credits
+            
 
         
     
