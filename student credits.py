@@ -11,6 +11,7 @@ students = [["Harry",2],  ["Tom", 4], ["Jamie", 6], ["Izzy",8],  ["Max",10],  ["
 #the except statement catches any input that is not a number. 
 def menu():
     while True:
+        print("")
         print("Welcome to the student credit database")
         print("please select one of the following options")
         print("1. Show list of student and credits")
@@ -21,6 +22,7 @@ def menu():
 
         try:
             option_select = int(input())
+        
             if option_select == 1:
                 show_list()
 
@@ -36,6 +38,7 @@ def menu():
             else:
                 print("Please enter a number between 1 and 4")
 
+
         except:
             print("error, please enter an interger")
 
@@ -45,6 +48,8 @@ def show_list():
     for index in range(0, len(students)):
         print("{}. {} - Credits: {}".format(index+1, students[index][0], students[index][1]))
 
+        
+
 
 def add_new():
     student_name = input("Enter student's name")
@@ -53,15 +58,34 @@ def add_new():
     new_student = [student_name, student_credits]
     students.append(new_student)
 
+    print(new_student, "Has been added")
+
+    
+
 
 def delete_std():
     show_list()
-    std_number = int(input("Enter student number you wish to delete:"))
-    del(students[std_num-1])
+    student_number = int(input("Please Enter the number of the student you wish to delete"))
+    print(students[student_number-1],"is being deleted")
+    del(students[student_number-1])
 
+    
+
+
+
+def update():
+    show_list()
+    student_number = int(input("Please Enter the number of the student you wish to delete"))
+    new_name = input("Enter new name")
+    new_credits = int(input("Enter new number of credits"))
+
+    students[student_number-1][0] = new_name
+    students[student_number-1][1] = new_credits
+
+        
+    
 
 menu()
-
 
 
 
