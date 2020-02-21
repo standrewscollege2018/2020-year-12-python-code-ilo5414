@@ -95,7 +95,8 @@ def update():
         print("What would you like to update?",
               "1. Students name",
               "2. Students credits",
-              "3. Both")
+              "3. Add credits",
+              "4. Both")
        
         update_option = int(input())
         if update_option == 1:
@@ -104,9 +105,18 @@ def update():
             
         elif update_option == 2:
             new_credits = int(input("Enter new number of credits"))
-            students[student_number-1][1] = new_credits   
-                
+            students[student_number-1][1] = new_credits
+
         elif update_option == 3:
+            add_credits = int(input("Enter the number of credits you wish to add:"))
+            current_credits = students[student_number-1][1]
+            new_total = current_credits + add_credits
+
+            students[student_number-1][1] = new_total
+
+            
+                
+        elif update_option == 4:
             new_name = input("Enter new name")
             new_credits = int(input("Enter new number of credits"))
             students[student_number-1][0] = new_name
