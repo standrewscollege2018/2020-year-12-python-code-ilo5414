@@ -11,6 +11,8 @@ students = [["Harry",2],  ["Tom", 4], ["Jamie", 6], ["Izzy",8],  ["Max",10],  ["
 #the except statement catches any input that is not a number. 
 def menu():
     while True:
+
+        #displaying all the option availble for the user to select
         print("")
         print("Welcome to the student credit database")
         print("please select one of the following options")
@@ -20,9 +22,12 @@ def menu():
         print("4. Update details")
         print("5. Exit")
 
+        #using a try and except statement to error catch unwanted inputs
         try:
+            #reciveing users input
             option_select = int(input())
-        
+
+            #using if statments to connect the users option input to the option function
             if option_select == 1:
                 show_list()
 
@@ -35,52 +40,62 @@ def menu():
             elif option_select == 4:
                 update()
 
+            elif option_select == 5:
+                exit()
+            #error catching for number inputs that are not one of the options
             else:
-                print("Please enter a number between 1 and 4")
+                print("Please enter a number between 1 and 5")
 
-
+        #error catching for inputs that are not integers
         except:
             print("error, please enter an interger")
 
 
-
+#displaying the list function
 def show_list():
     for index in range(0, len(students)):
         print("{}. {} - Credits: {}".format(index+1, students[index][0], students[index][1]))
 
         
 
-
+#adding new student function
 def add_new():
-    student_name = input("Enter student's name")
-    student_credits = int(input("Enter number of credits"))
 
-    new_student = [student_name, student_credits]
-    students.append(new_student)
+    repetition = int(input("How many new students do you wish to add?:"))
+    for i in range (0, repetition):
+        student_name = input("Enter student's name")
+        student_credits = int(input("Enter number of credits"))
 
-    print(new_student, "Has been added")
+        new_student = [student_name, student_credits]
+        students.append(new_student)
+
+        print(new_student, "Has been added")
 
     
 
-
+#deleting student function
 def delete_std():
     show_list()
-    student_number = int(input("Please Enter the number of the student you wish to delete"))
-    print(students[student_number-1],"is being deleted")
-    del(students[student_number-1])
+    repetition = int(input("How many new students do you wish to delete?:"))
+    for i in range (0, repetition):
+        student_number = int(input("Please Enter the number of the student you wish to delete?:"))
+        print(students[student_number-1],"is being deleted")
+        del(students[student_number-1])
 
     
 
 
-
+#updating student information function
 def update():
     show_list()
-    student_number = int(input("Please Enter the number of the student you wish to delete"))
-    new_name = input("Enter new name")
-    new_credits = int(input("Enter new number of credits"))
+    repetition = int(input("How many new students do you wish to update?:"))
+    for i in range (0, repetition):
+        student_number = int(input("Please Enter the number of the student you wish to update?:"))
+        new_name = input("Enter new name")
+        new_credits = int(input("Enter new number of credits"))
 
-    students[student_number-1][0] = new_name
-    students[student_number-1][1] = new_credits
+        students[student_number-1][0] = new_name
+        students[student_number-1][1] = new_credits
 
         
     
