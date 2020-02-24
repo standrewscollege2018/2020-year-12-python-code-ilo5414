@@ -5,8 +5,8 @@ students = [["Harry",2],  ["Tom", 4], ["Jamie", 6], ["Izzy",8],  ["Max",10],  ["
 
 #Menu function, this creates a menu for the users where they have a choice between 5 different options
 #the programme can do. the programme displays the options in a loop. The users are then asked to
-#input a number that represents one of the options availible. The user input is then matched to and
-#connected a function that takes the user to that option they selected. This is inside a try statement
+#input a number that represents one of the options availible. The user input is then matched and
+#connected to a function that takes the user to that option they selected. This is inside a try statement
 #with if statements to see what option the user selected, an else statement at the end provides error catching. 
 #the except statement catches any input that is not a number. 
 def menu():
@@ -95,28 +95,39 @@ def update():
         print("What would you like to update?",
               "1. Students name",
               "2. Students credits",
-              "3. Add credits",
-              "4. Both")
-       
+              "3. Both",)
+      
         update_option = int(input())
+
+        
         if update_option == 1:
             new_name = input("Enter new name")
             students[student_number-1][0] = new_name
             
         elif update_option == 2:
-            new_credits = int(input("Enter new number of credits"))
-            students[student_number-1][1] = new_credits
+            print("Please select one of the following options")
+            print("1. Change the whole total credits")
+            print("2. Add credits to total")
+            
+            credit_update = int(input())
+            
+            if credit_update == 1:
+                new_credits = int(input("Enter new number of credits"))
+                students[student_number-1][1] = new_credits
+            elif credit_update == 2:
+                
+                add_credits = int(input("Enter the number of credits you wish to add:"))
+                current_credits = students[student_number-1][1]
+                new_total = current_credits + add_credits
 
-        elif update_option == 3:
-            add_credits = int(input("Enter the number of credits you wish to add:"))
-            current_credits = students[student_number-1][1]
-            new_total = current_credits + add_credits
+                students[student_number-1][1] = new_total
 
-            students[student_number-1][1] = new_total
+            else:
+                print("Error!, please enter a valid number")
 
             
                 
-        elif update_option == 4:
+        elif update_option == 3:
             new_name = input("Enter new name")
             new_credits = int(input("Enter new number of credits"))
             students[student_number-1][0] = new_name
