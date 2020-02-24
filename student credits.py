@@ -88,60 +88,185 @@ def delete_std():
 #updating student information function
 def update():
     show_list()
-    repetition = int(input("How many new students do you wish to update?:"))
-    for i in range (0, repetition):
-        
-        student_number = int(input("Please Enter the number of the student you wish to update?:"))
-        print("What would you like to update?",
-              "1. Students name",
-              "2. Students credits",
-              "3. Both",)
-      
-        update_option = int(input())
-
-        
-        if update_option == 1:
-            new_name = input("Enter new name")
-            students[student_number-1][0] = new_name
-            
-        elif update_option == 2:
-            print("Please select one of the following options")
-            print("1. Change the whole total credits")
-            print("2. Add credits to total")
-            
-            credit_update = int(input())
-            
-            if credit_update == 1:
-                new_credits = int(input("Enter new number of credits"))
-                students[student_number-1][1] = new_credits
-            elif credit_update == 2:
-                
-                add_credits = int(input("Enter the number of credits you wish to add:"))
-                current_credits = students[student_number-1][1]
-                new_total = current_credits + add_credits
-
-                students[student_number-1][1] = new_total
+    ask = True
+    while ask == True:
+        try:
+            repetition = int(input("How many new students do you wish to update?:"))
+            if repetition in range(1, len(students)):
+                ask = False
 
             else:
-                print("Error!, please enter a valid number")
+                print("ERROR! Please enter a valid number")
+                print("")
 
-            
-                
-        elif update_option == 3:
-            new_name = input("Enter new name")
-            new_credits = int(input("Enter new number of credits"))
-            students[student_number-1][0] = new_name
-            students[student_number-1][1] = new_credits
-                
-                
-        else:
-            print("ERROR" "Please enter a valid number")
+        except:
+            print("ERROR! Please enter a valid integer")
+            print("")
 
+
+
+    for i in range (0, repetition):
+
+        ask = True
+        while ask == True:
+            try:
+                student_number = int(input("Please Enter the number of the student you wish to update?:"))
+                if student_number in range(1, len(students)):
+                    ask = False
+
+                else:
+                    print("ERROR! Please enter a valid number")
+                    print("")
+
+            except:
+                print("ERROR! Please enter a valid integer")
+                print("")
+
+        
+    ask = True
+    while ask == True:
+        try:
+            print("")
+            print("What would you like to update?")
+            print("1. Students name")
+            print("2. Students credits")
+            print("3. Both")
+            update_option = int(input())
+            if update_option in range(1,4):
+                ask = False
+
+                #Update option one
+                if update_option == 1:
+                    new_name = input("Enter new name")
+                    students[student_number-1][0] = new_name
+
+
+                #Update option two   
+                elif update_option == 2:
+                    print("Please select one of the following options")
+                    print("1. Change the whole total credits")
+                    print("2. Add credits to total")
+                    
+                    credit_update = int(input())
+                    #to CHANGE the total amount of credits
+                    if credit_update == 1:
+                        
+                        ask = True
+                        while ask == True:
+                            try:
+                                new_credits = int(input("Enter new number of credits"))
+                                if new_credits in range(0,120):
+                                    ask = False
+                                    
+                                    students[student_number-1][1] = new_credits
+
+                                else:
+                                    print("Please enter a vaild amount of credits")
+                                    
+                            except:
+                                print("Please enter a valid integer")
+
+                     #to ADD to the total amount of credits   
+                    elif credit_update == 2:
+
+                        ask = True
+                        while ask == True:
+                            try:
+                                add_credits = int(input("Enter the number of credits you wish to add:"))
+                                if add_credits in range(1,120):
+                                    ask = False
+                                    
+                                    current_credits = students[student_number-1][1]
+                                    new_total = current_credits + add_credits   
+                                    students[student_number-1][1] = new_credits
+
+                                else:
+                                    print("Please enter a vaild amount of credits")
+                                    
+                            except:
+                                print("Please enter a valid integer")
+
+                                
+                        add_credits = int(input("Enter the number of credits you wish to add:"))
+                        current_credits = students[student_number-1][1]
+                        new_total = current_credits + add_credits
+
+                        students[student_number-1][1] = new_total
+
+                    else:
+                        print("Error!, please enter a valid number")
+
+
+               #Update option three
+                else:
+                    new_name = input("Enter new name")
+                    students[student_number-1][0] = new_name
+                    
+                   print("Please select one of the following options")
+                    print("1. Change the whole total credits")
+                    print("2. Add credits to total")
+                    
+                    credit_update = int(input())
+                    #to CHANGE the total amount of credits OPTION 3
+                    if credit_update == 1:
+                        
+                        ask = True
+                        while ask == True:
+                            try:
+                                new_credits = int(input("Enter new number of credits"))
+                                if new_credits in range(0,120):
+                                    ask = False
+                                    
+                                    students[student_number-1][1] = new_credits
+
+                                else:
+                                    print("Please enter a vaild amount of credits")
+                                    
+                            except:
+                                print("Please enter a valid integer")
+
+                     #to ADD to the total amount of credits in (OPTION 3)
+                    elif credit_update == 2:
+
+                        ask = True
+                        while ask == True:
+                            try:
+                                add_credits = int(input("Enter the number of credits you wish to add:"))
+                                if add_credits in range(1,120):
+                                    ask = False
+                                    
+                                    current_credits = students[student_number-1][1]
+                                    new_total = current_credits + add_credits   
+                                    students[student_number-1][1] = new_credits
+
+                                else:
+                                    print("Please enter a vaild amount of credits")
+                                    
+                            except:
+                                print("Please enter a valid integer")
+
+                                
+                        add_credits = int(input("Enter the number of credits you wish to add:"))
+                        current_credits = students[student_number-1][1]
+                        new_total = current_credits + add_credits
+
+                        students[student_number-1][1] = new_total
+
+                    else:
+                        print("Error!, please enter a valid number")
+                        
+                    
+
+            else:
+                print("Please enter a number between 1 and 3")
+                print("")
+
+        except:
+            print("Please enter a valid integer")
+            print("")
             
 
         
-    
-
 menu()
 
 
