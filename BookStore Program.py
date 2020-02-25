@@ -1,4 +1,8 @@
 #Book Store Program
+
+
+book_list[[harry potter, j.k.rowling, 10], [the giver, lois lowry, 20], [gone, michael grant,30]]
+
 #Main Menu Function
 def menu()
 
