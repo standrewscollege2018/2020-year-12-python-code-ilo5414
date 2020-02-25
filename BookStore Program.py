@@ -45,22 +45,65 @@ def menu():
 
 #def find_book():
 
-
+####################################################################
+#add book funtion
 def add_book():
+    #asking the users how many books they wish to add
     print("How many books would you like to add?")
 
+    #boolean while loop to help with error catching
     ask = True
     while ask == True:
         try:
+            #user input for how many books they wish to add
             repetition = int(input("type here"))
-            if repetition in range(0,100):
+            #limit to 100 books that can be added at one time
+            if repetition in range(0,101):
+                #if the user enters an input within thhe min and max of the limit
+                #the while loop is set to false and the next part of the function is open
                 ask = False
 
+            #catching inputs that is not within the limit
             else:
                 print("Error 1")
 
+        #catching inputs that not integers
         except:
             print("Error 2")
+
+    #user input for the name of the new book being added
+    print("please enter the name of the book")
+    name = input("type here")
+
+    #user input for the name of the author of the new book being added
+    print("please enter the name of the author")
+    author = input("type here")
+
+    #user input for the price of the new book being added
+    print("please enter the price of the book")
+    #boolean while loop around the input to make sure that the right number is inputted
+    ask = True
+    while ask == True:
+        try:
+            #input for the price
+            price = int(input("type here"))
+            #price inputted can't be over 200
+            if price in range(1,201):
+                #if input is correct, loop is set to false and function carries on
+                ask = False
+            #catching inputs that is not within the limit
+            else:
+                print("Error 1")
+        #catching inputs that not integers
+        except:
+            print("Error 2")
+    #creating a new sub list to append/ add to the original list
+    new_book = [name, author, price]
+    book_list.append(new_book)
+
+    #displaying the new book being added
+    print(new_book, "has been added")
+            
 
 
 #def edit_book():
