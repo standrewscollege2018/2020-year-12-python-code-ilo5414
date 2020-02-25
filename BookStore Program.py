@@ -1,10 +1,10 @@
 #Book Store Program
 
 
-book_list[[harry potter, j.k.rowling, 10], [the giver, lois lowry, 20], [gone, michael grant,30]]
+book_list = [["harry potter", "j.k.rowling", 10], ["the giver", "lois lowry" ,20], ["gone", "michael grant",30]]
 
 #Main Menu Function
-def menu()
+def menu():
 
     while True:
         #displaying the options for the program
@@ -12,7 +12,7 @@ def menu()
         print("1. Find Book")
         print("2. Add Book")
         print("3.Edit Book")
-        print("4. Delete Book)
+        print("4. Delete Book")
         print("5. Exit")
 
         try:
@@ -37,9 +37,39 @@ def menu()
             #error catching for number inputs that are not one of the options
             else:
                 print("Please enter a number between 1 and 5")
-
         #error catching for inputs that are not integers
         except:
             print("error, please enter an interger")
+
+
+
+#def find_book():
+
+
+def add_book():
+    print("How many books would you like to add?")
+
+    ask = True
+    while ask == True:
+        try:
+            repetition = int(input("type here"))
+            if repetition in range(0,100):
+                ask = False
+
+            else:
+                print("Error 1")
+
+        except:
+            print("Error 2")
+
+
+#def edit_book():
+
+
+#def delete_book():
+
+
+
+menu()
 
             
