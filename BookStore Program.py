@@ -59,7 +59,7 @@ def add_book():
             repetition = int(input("type here"))
             #limit to 100 books that can be added at one time
             if repetition in range(0,101):
-                #if the user enters an input within thhe min and max of the limit
+                #if the user enters an input within the min and max of the limit
                 #the while loop is set to false and the next part of the function is open
                 ask = False
 
@@ -71,42 +71,97 @@ def add_book():
         except:
             print("Error 2")
 
-    #user input for the name of the new book being added
-    print("please enter the name of the book")
-    name = input("type here")
+    for i in range(0, repetition):
+    
+        #user input for the name of the new book being added
+        print("please enter the name of the book")
+        name = input("type here")
 
-    #user input for the name of the author of the new book being added
-    print("please enter the name of the author")
-    author = input("type here")
+        #user input for the name of the author of the new book being added
+        print("please enter the name of the author")
+        author = input("type here")
 
-    #user input for the price of the new book being added
-    print("please enter the price of the book")
-    #boolean while loop around the input to make sure that the right number is inputted
+        #user input for the price of the new book being added
+        print("please enter the price of the book")
+        #boolean while loop around the input to make sure that the right number is inputted
+        ask = True
+        while ask == True:
+            try:
+                #input for the price
+                price = int(input("type here"))
+                #price inputted can't be over 200
+                if price in range(1,201):
+                    #if input is correct, loop is set to false and function carries on
+                    ask = False
+                #catching inputs that is not within the limit
+                else:
+                    print("Error 1")
+            #catching inputs that not integers
+            except:
+                print("Error 2")
+        #creating a new sub list to append/ add to the original list
+        new_book = [name, author, price]
+        book_list.append(new_book)
+
+        #displaying the new book being added
+        print(new_book, "has been added")
+            
+##################################################################################
+
+def edit_book():
+    #asking the users how many books they wish to edit
+    print("How many books would you like to edit?")
+
+    #boolean while loop to help with error catching
     ask = True
     while ask == True:
         try:
-            #input for the price
-            price = int(input("type here"))
-            #price inputted can't be over 200
-            if price in range(1,201):
-                #if input is correct, loop is set to false and function carries on
+            #user input for how many books they wish to edit
+            repetition = int(input("type here"))
+            #limit to te amount of books in the list that can be edited at one time
+            if repetition in range(0,len(book_list):
+                #if the user enters an input within the min and max of the limit
+                #the while loop is set to false and the next part of the function is open
                 ask = False
+
             #catching inputs that is not within the limit
             else:
                 print("Error 1")
+
         #catching inputs that not integers
         except:
             print("Error 2")
-    #creating a new sub list to append/ add to the original list
-    new_book = [name, author, price]
-    book_list.append(new_book)
 
-    #displaying the new book being added
-    print(new_book, "has been added")
-            
+    for i in range(0, repetition):
 
+        #asking the user what book they would like to edit
+        #here i will input the search function so users can search for the book
+        #they wish to edit
 
-#def edit_book():
+        #aksing the user how many things they wish to edit about the book
+        print("How many things do you wish to edit about the book")
+
+         ask = True
+        while ask == True:
+            try:
+                #user input for how many things they wish to edit
+                edit_repetition = int(input("type here"))
+                #limit to how many things about book they can edit between 1 and 3
+                if edit_repetition in range(1,4):
+                    #if the user enters an input within the min and max of the limit
+                    #the while loop is set to false and the next part of the function is open
+                    ask = False
+
+                #catching inputs that is not within the limit
+                else:
+                    print("Error 1")
+
+            #catching inputs that not integers
+            except:
+                print("Error 2")
+
+        
+     
 
 
 #def delete_book():
