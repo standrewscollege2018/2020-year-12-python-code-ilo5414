@@ -2,7 +2,7 @@
 
 
 book_list = [["harry potter", "j.k.rowling", 10], ["the giver", "lois lowry" ,20], ["gone", "michael grant",30]]
-
+counter = 0 
 #Main Menu Function
 def menu():
 
@@ -11,9 +11,10 @@ def menu():
         print("Main MENU")
         print("1. Find Book")
         print("2. Add Book")
-        print("3.Edit Book")
+        print("3. Edit Book")
         print("4. Delete Book")
-        print("5. Exit")
+        print("5. Display books")
+        print("6. Exit")
 
         try:
             #user input allowing them to select an option
@@ -33,7 +34,11 @@ def menu():
                 delete_book()
 
             elif option_select == 5:
+                display()
+
+            elif option_select == 6:
                 exit()
+                
             #error catching for number inputs that are not one of the options
             else:
                 print("Please enter a number between 1 and 5")
@@ -42,11 +47,18 @@ def menu():
             print("error, please enter an interger")
 
 
-
-#def find_book():
-
 ####################################################################
-#add book funtion
+#displaying the books in the system
+def display():
+    #creating a loop that goes through and displays each book from in postion of 0 to the end of the list
+    for index in range(0,len(book_list)):
+    
+        #printing and formating the names and parts of the books being displayed
+        print("{}. {} By:  {}, Price: ${}".format(index+1, book_list[index][0], book_list[index][1], book_list[index][2]))
+
+    print("")
+    
+   
 def add_book():
     #asking the users how many books they wish to add
     print("How many books would you like to add?")
@@ -105,63 +117,7 @@ def add_book():
 
         #displaying the new book being added
         print(new_book, "has been added")
-            
-##################################################################################
 
-def edit_book():
-    #asking the users how many books they wish to edit
-    print("How many books would you like to edit?")
-
-    #boolean while loop to help with error catching
-    ask = True
-    while ask == True:
-        try:
-            #user input for how many books they wish to edit
-            repetition = int(input("type here"))
-            #limit to te amount of books in the list that can be edited at one time
-            if repetition in range(0,len(book_list):
-                #if the user enters an input within the min and max of the limit
-                #the while loop is set to false and the next part of the function is open
-                ask = False
-
-            #catching inputs that is not within the limit
-            else:
-                print("Error 1")
-
-        #catching inputs that not integers
-        except:
-            print("Error 2")
-
-    for i in range(0, repetition):
-
-        #asking the user what book they would like to edit
-        #here i will input the search function so users can search for the book
-        #they wish to edit
-
-        #aksing the user how many things they wish to edit about the book
-        print("How many things do you wish to edit about the book")
-
-         ask = True
-        while ask == True:
-            try:
-                #user input for how many things they wish to edit
-                edit_repetition = int(input("type here"))
-                #limit to how many things about book they can edit between 1 and 3
-                if edit_repetition in range(1,4):
-                    #if the user enters an input within the min and max of the limit
-                    #the while loop is set to false and the next part of the function is open
-                    ask = False
-
-                #catching inputs that is not within the limit
-                else:
-                    print("Error 1")
-
-            #catching inputs that not integers
-            except:
-                print("Error 2")
-
-        
-     
 
 
 #def delete_book():
