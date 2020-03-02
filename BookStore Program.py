@@ -120,8 +120,78 @@ def add_book():
 
 
 
-#def delete_book():
+def delete_book():
+    #displaying the books in the system
+    display()
 
+    #using a loop to error catch unwanted inputs
+    print("How many books do you wish to delete")
+    #calling the rep function and bringing out the repetition value 
+    repetition = rep()
+    
+    #fixed loop to repeat the delete book component as many times as the user inputted in previous input
+    for i in range(0, repetition):
+    
+        print("please enter the book reference of the book you wish to delete")
+        #calling the book reference function
+        book_ref = book_refer()
+       
+        
+
+
+        #displaying the book being deleted
+        print(book_list[book_ref-1],"is being deleted")
+        #deleting the book
+        del(book_list[book_ref-1])
+        
+        
+def book_refer():
+    ask = True
+    while ask == True:
+        try:
+            #user input for the book they wish to adapt
+            book_ref = int(input("type here"))
+            #setting a boundry to users can only enter a number that represents a book
+            if book_ref in range(1, len(book_list)+1):
+                #if input is valid the loop is set to false and the function carries on.
+                ask = False
+                #returning the book reference
+                return book_ref
+
+            #catching errors that are integer
+            else:
+                print("Error 1")
+        #catching errors that are not integer
+        except:
+                print("Error 2")
+         
+
+#function to control how many times a functions repeats 
+def rep():
+    ask = True
+    while ask == True:
+        try:
+            #getting the users input for how many books they want to alter
+            repetition = int(input("type here?"))
+
+            #creating an input boundry so that no more than the amount of books there are can be changed
+            if repetition in range(1, len(book_list)+1):
+                #if the input is valid then the loop is set too false and the function carries on
+                ask = False
+                #returning the repetition input
+                return repetition
+
+            #catching incorrect integer input
+            else:
+                print("Error 1")
+                print("")
+                
+        #catching incorrect inputs thats not string
+        except:
+            print("Error 2")
+            print("")
+
+    
 
 
 menu()
