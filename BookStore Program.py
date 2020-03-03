@@ -143,7 +143,111 @@ def delete_book():
         print(book_list[book_ref-1],"is being deleted")
         #deleting the book
         del(book_list[book_ref-1])
+
+#function to edit books within the list
+def edit_book():
+    #displaying the books in the system
+    display()
+
+    print("How many books do you wish to edit")
+    #calling the rep function and bringing out the repetition value 
+    repetition = rep()
+    
+    #fixed loop to repeat the edit book component as many times as the user inputted in previous input
+    for i in range(0, repetition):
+
+        print("Please enter the reference number of the book you wish to edit")
+
+        #calling the book reference function and the value returned from book_ref input
+        book_ref = book_refer()
+
+        #asking the user how many things they want to edit about the book
+        print("how many things would you like to edit about the book")
+        print("1, 2, or 3?")
+
+        #creating a while loop to error catch unwanted inputs
+        ask = True
+        while ask == True:
+            try:
+                #user input for how many things they want to edit
+                rep_option = int(input())
+                #creating a boundry so only 1 2 and 3 are valid inputs
+                if rep_option in range(1,4):
+                    #if the input is valid then the loop is set to false and the function carries on 
+                    ask = False
+
+                #catching incorrect integer inputs
+                else:
+                    print("Error 1")
+            #catching incorrect inputs that are not integer
+            except:
+                print("Error 2")
+
+        #loop repeating the amount of times as the amout of things the user wishes to change about the book
+        for i in range(0, rep_option):
+            #displaying the option
+            print("what would you like to edit about the book?")
+            print("1. Title")
+            print("2. Author")
+            print("3. Price")
+
+            #loop surrounding the option input which allows for error catching
+            ask = True
+            while ask == True:
+                try:
+                    option_select = int(input())
+                    if option_select in range(1, 4):
+                         ask = False
+
+                    else:
+                        print("Error 1")
+
+                except:
+                        print("Error 2")
+
+            #if the user selects the title option
+            if option_select == 1:
+                print("please enter the new title")
+                new_title = input()
+
+                #changing the old title to the new title inputted
+                book_list[book_ref-1][0] = new_title
+                print(book_list[book_ref-1])
+
+            elif option_select == 2:
+                print("please enter the new author")
+                new_author = input()
+
+                #changing the only author to the new author
+                book_list[book_ref-1][1] = new_author
+                print(book_list[book_ref-1])
+
+
+            else:
+                print("please enter the new price")
+                #conditional loop for catching input errors
+                ask = True
+                while ask == True:
+                    try:
+                        new_price = int(input())
+                        if new_price in range(1,  201):
+                            ask = False
+
+                        else:
+                            print("Error 1")
+
+                    except:
+                        print("Error 2")
+
+
+                book_list[book_ref-1][2]  = new_price
+                print(book_list[book_ref-1])
+                        
         
+        
+
+
+     
         
 def book_refer():
     ask = True
