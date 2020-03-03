@@ -3,6 +3,7 @@
 
 departure = [["Auckland", 0], ["Wellington", 50], ["Christchurch", 75]]
 destination = [["Sydney", 326, 120], ["Tonga", 378, 40], ["Shanghai", 1436, 60], ["London", 2376, 80]]
+trip = []
 total_cost = 0
 
 print("Welcome to Logie's Legendary travel service!")
@@ -33,7 +34,12 @@ while ask == True:
             print("Please enter a valid option")
 
     except:
-        print("Please enter a number") 
+        print("Please enter a number")
 
+    trip.append(departure[depart_option-1])
+    total_cost = trip[0][1]
+    print("Total cost of your trip so far..",  total_cost)
+    print("Looks like you are departing from..")
+    print(trip[0][0])
 
 
