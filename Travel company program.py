@@ -93,6 +93,59 @@ print("")
 
 ###################################################################
 #accomodation section
+#displaying the trip details so far
+print("Your exciting holiday from", trip[0][0], "to", trip[1][0],"is almost complete")
+print("You now just need to select your accomodation!")
+print("")
+
+#displaying the per night price for the specific destination selected
+print("Your accomodation per night in",  trip[1][0], "is", "${}".format(trip[1][2]))
+print("However if you book 3 or more nights you get 20% off!!")
+
+#getting user input for how many nights they would like to stay in a conditional to catch errors
+print("How many nights would you like to stay in", trip[1][0])
+ask = True
+while ask == True:
+    try:
+        #user input for home many nights they wish to stay in their location
+        nights = int(input("type here"))
+        #setting a boundry so users can book a minimum of 1 night to a maximum of 10
+        if nights in range(1,11):
+            #if input is valid, the loop is set to false and program carries on
+            ask = False
+            
+        #catching integer input errors, e.g. if the input is greater or less than the range
+        else:
+            print("please enter a valid number")
+
+    #catching errors that are not integer.
+    except:
+        print("please enter an integer")
+
+
+if nights < 3:
+    cost = nights * trip[1][2]
+    print("That will be a total of ${}".format(cost))
+    total_cost = total_cost + cost
+    print("The total cost of your trip now is ${}".format(total_cost))
+
+else:
+    cost = nights * trip[1][2] * 0.8
+    saving = nights * trip[1][2] * 0.2
+    print("That will be a total of ${}".format(cost))
+    print("You just saved ${}".format(saving))
+    print("")
+    total_cost = total_cost + cost
+    print("The total cost of your trip now is ${}".format(total_cost))
+    print("")
+
+
+print("We are happy to annonce that your trip is now fully booked!")
+print("You will be traveling from", trip[0][0], "to",  trip[1][0])
+print("and staying in", trip[1][0], "for",  nights, "nights before returning home!")
+print("")
+print("Thank you for using our service, we hope you have an amazing trip.")
+
 
 
 
