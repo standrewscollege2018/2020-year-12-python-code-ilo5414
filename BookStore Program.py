@@ -46,8 +46,9 @@ def menu():
         except:
             print("error, please enter an interger")
 
+############################################################################
 
-####################################################################
+############################################################################
 #displaying the books in the system
 def display():
     #creating a loop that goes through and displays each book from in postion of 0 to the end of the list
@@ -57,8 +58,11 @@ def display():
         print("{}. {} By:  {}, Price: ${}".format(index+1, book_list[index][0], book_list[index][1], book_list[index][2]))
 
     print("")
+
+
+########################################################################3
     
-   
+#########################################################################
 def add_book():
     #asking the users how many books they wish to add
     print("How many books would you like to add?")
@@ -118,8 +122,10 @@ def add_book():
         #displaying the new book being added
         print(new_book, "has been added")
 
+        
+###############################################################################
 
-
+##################################################################################
 def delete_book():
     #displaying the books in the system
     display()
@@ -143,7 +149,9 @@ def delete_book():
         print(book_list[book_ref-1],"is being deleted")
         #deleting the book
         del(book_list[book_ref-1])
+###############################################################################
 
+#################################################################################
 #function to edit books within the list
 def edit_book():
     #displaying the books in the system
@@ -214,15 +222,19 @@ def edit_book():
                 book_list[book_ref-1][0] = new_title
                 print(book_list[book_ref-1])
 
+                
+            #if the user selects the author option
             elif option_select == 2:
                 print("please enter the new author")
+                #asking for the new author 
                 new_author = input()
 
                 #changing the only author to the new author
                 book_list[book_ref-1][1] = new_author
+                #displaying the newly edited book
                 print(book_list[book_ref-1])
 
-
+            #if the user selects the price option
             else:
                 print("please enter the new price")
                 #conditional loop for catching input errors
@@ -230,7 +242,9 @@ def edit_book():
                 while ask == True:
                     try:
                         new_price = int(input())
+                        #making it so book prices can't be more than $200
                         if new_price in range(1,  201):
+                            #if input/newprice is correct the loop is set to false and the function carries on
                             ask = False
 
                         else:
@@ -239,16 +253,14 @@ def edit_book():
                     except:
                         print("Error 2")
 
-
+                #changing the old price to the new price
                 book_list[book_ref-1][2]  = new_price
+                #displaying the newly edited book
                 print(book_list[book_ref-1])
                         
+ #########################################################################       
         
-        
-
-
-     
-        
+#########################################################################
 def book_refer():
     ask = True
     while ask == True:
@@ -268,8 +280,10 @@ def book_refer():
         #catching errors that are not integer
         except:
                 print("Error 2")
-         
 
+#################################################################################
+         
+#################################################################################
 #function to control how many times a functions repeats 
 def rep():
     ask = True
