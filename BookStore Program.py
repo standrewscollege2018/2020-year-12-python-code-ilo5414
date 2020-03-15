@@ -57,7 +57,7 @@ def display():
         #printing and formating the names and parts of the books being displayed
         print("{}. {} By:  {}, Price: ${}".format(index+1, book_list[index][0], book_list[index][1], book_list[index][2]))
 
-    print("")
+    print("\n")
 
 
 ########################################################################3
@@ -67,25 +67,28 @@ def add_book():
     #asking the users how many books they wish to add
     print("How many books would you like to add?")
 
-    #boolean while loop to help with error catching
+    #error catching for invalid inputs 
     ask = True
     while ask == True:
         try:
             #user input for how many books they wish to add
             repetition = int(input("type here"))
-            #limit to 100 books that can be added at one time
-            if repetition in range(0,101):
-                #if the user enters an input within the min and max of the limit
-                #the while loop is set to false and the next part of the function is open
-                ask = False
-
-            #catching inputs that is not within the limit
-            else:
-                print("Error 1")
-
-        #catching inputs that not integers
+            ask = False
         except:
             print("Error 2")
+            
+        #limit to 100 books that can be added at one time
+        if repetition in range(0,101):
+            #if the user enters an input within the min and max of the limit
+            #the while loop is set to false and the next part of the function is open
+            ask = False
+
+        #catching inputs that is not within the limit
+        else:
+            print("Error 1")
+
+    #catching inputs that not integers
+       
 
     for i in range(0, repetition):
     
